@@ -18,13 +18,11 @@
 
 </script>
 
+<ProductHeader/>
+
 <button on:click={() => {
   goto('/about')
 }}>Go to About</button>
 
-<ProductHeader/>
 
-<a href="/about">About</a>
-
-<Button></Button>
 
