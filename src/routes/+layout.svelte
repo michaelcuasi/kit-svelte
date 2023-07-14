@@ -1,14 +1,7 @@
 <script lang="ts">
 	import type { LayoutData } from "./$types";
   import { page } from '$app/stores'
-
-  console.log('Page Store ====> ', $page)
   export let data: LayoutData
-  console.log('Data ====>', data)
-
-  export let dataFrom = $page
-  console.log('DATAFROM ===> ', dataFrom)
-
 </script>
 
 <svelte:head>
@@ -21,10 +14,22 @@
 </svelte:head >
 
 {#if data.user}
-<p>Logged in as {data.user.name}</p>
+  <p>Logged in as {data.user.name}</p>
+{/if}
 <nav>
   <a href="/">Home</a>
   <a href="/products">Products</a>
+  {#if !data.user}
+    <a href="/login">login</a>
+  {/if}
 </nav>
-<slot {dataFrom}/>
+
+{#if data.user}
+  <button on:click={() => {
+    fetch('/api/logout', {
+      method: 'POST'
+    })
+  }}>Logout
+</button>
 {/if}
+<slot/>
