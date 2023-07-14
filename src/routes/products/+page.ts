@@ -6,4 +6,4 @@ export const load: PageLoad = ({data}) => {
     products: data.products,
     title: 'product list'
   }
-}
+} 

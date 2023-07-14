@@ -8,7 +8,7 @@ declare global {
 		// 	products?: {id: number}[]
 		// }
 		// interface Platform {}
-	}
+	} 
 }
 
 export {};

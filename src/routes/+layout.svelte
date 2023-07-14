@@ -2,7 +2,13 @@
 	import type { LayoutData } from "./$types";
   import { page } from '$app/stores'
 
+  console.log('Page Store ====> ', $page)
   export let data: LayoutData
+  console.log('Data ====>', data)
+
+  export let dataFrom = $page
+  console.log('DATAFROM ===> ', dataFrom)
+
 </script>
 
 <svelte:head>
@@ -20,5 +26,5 @@
   <a href="/">Home</a>
   <a href="/products">Products</a>
 </nav>
-<slot />
+<slot {dataFrom}/>
 {/if}

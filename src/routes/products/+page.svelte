@@ -3,10 +3,10 @@
 
   export let data: PageData
 
-  $: products = data.products.products
+  $: products = data.products.products 
 </script>
 
-<!-- {data.user.name} -->
+<!-- {data.user.name} --> 
 
 <!-- <h2>Products</h2> -->
 <h2>{data.title}</h2>
@@ -14,7 +14,7 @@
 {#if products && products.length > 0}
 <ul>
   {#each products as product}
-  <li>
+  <li> 
     <img src={product.thumbnail} alt={product.title} />
     <h3>
       <a href="/product/{product.id}">{product.title}</a>
