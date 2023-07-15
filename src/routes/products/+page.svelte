@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { invalidate } from '$app/navigation';
   import type {PageData} from './$types'
 
   export let data: PageData
@@ -10,6 +11,14 @@
 
 <!-- <h2>Products</h2> -->
 <h2>{data.title}</h2>
+<button on:click={() => {
+  // invalidate('https://dummyjson.com/products')
+  // invalidate('app:products')
+  // invalidate((url) => {
+  //   return url.hostname === 'dummyjson.com'
+  // })
+  invalidate('app:productsServerload')
+}}>Rerun</button>
 
 {#if products && products.length > 0}
 <ul>

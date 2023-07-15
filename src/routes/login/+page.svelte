@@ -1,10 +1,10 @@
 <script lang=ts>
-	import { goto } from "$app/navigation";
+	import { goto, invalidateAll } from "$app/navigation";
 
   let username = ''
   let password = ''
 
-  const login = async ({}) => {
+  const login = async () => {
     const response = await fetch('/api/login', {
       method: 'POST',
       body: JSON.stringify({username, password})
@@ -12,7 +12,10 @@
     const resJSON = await response.json()
     console.log(resJSON)
     if(response.ok) {
-      goto('/')
+      // goto('/', {
+      //   invalidateAll: true
+      // })
+      invalidateAll()
     } else {
       alert(resJSON.message)
     }
